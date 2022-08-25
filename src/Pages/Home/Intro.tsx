@@ -7,7 +7,7 @@ type Props = {
 }
 const Intro = (props: Props) => {
 	const str = "Workflow"
-	const [animationState, setAnimationState] = useState({animationPlayState: "paused"})   
+	const [animationState, setAnimationState] = useState({animationPlayState: "paused"})
 	useEffect(()=>{
 		setTimeout(()=>{
 			setAnimationState({animationPlayState: "running"})

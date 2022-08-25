@@ -1,7 +1,9 @@
+import Navbar from "../Navbar/Navbar"
+
 const Header = () => {
     return(
         <div className="App-header">
-            hejka przymsojniaku
+            <Navbar/>
         </div>
     )    
 }

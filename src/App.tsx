@@ -3,6 +3,7 @@ import './Assets/App.css';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import Intro from './Pages/Home/Intro';
+import Main from './Pages/Home/Main';
 
 function App() {
   const [show, setShow] = useState<"block"|"none">("block")
@@ -21,6 +22,7 @@ function App() {
     <div className="App">
       <Intro display={show} opacity={visible}/>
       <Header/>
+      <Main/>
       <Footer/>
     </div>
   );

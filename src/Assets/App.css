@@ -1,20 +1,61 @@
+*{
+  margin:0;
+  padding:0;
+}
 .App {
   text-align: center;
   font-size: calc(10px + 2vmin);
 }
-
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #61dafb;
+body{
   background-color: #282c34;
+}
+/* --HEADER STYLES-- */
+
+
+.App-header ul{
+  width:100%;
+  height:3em;
+  position:relative;
 
 }
+.App-header ul li:first-child{
+  right:30%;
+  position:absolute;
+}
+.App-header ul li:nth-child(2){
+  right:5%;
+  position:absolute;
+}
+.App-header ul li {
+  list-style: none;
+  top:2em;
+  background: #61dafb;
+  width:20%;
+  height:2em;
+  line-height:2em;
+  float:left;
+  border-radius:20px;
+  transition:0.2s;
+    -webkit-box-shadow: 8px 8px 10px -1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 8px 8px 10px -1px rgba(0, 0, 0, 0.5);
+  box-shadow: 8px 8px 10px -1px rgba(0, 0, 0, 0.5);
+    
+}
+.App-header ul li:hover{
+  transform:scale(110%);
+    -webkit-box-shadow: 8px 8px 30px -1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 8px 8px 30px -1px rgba(0, 0, 0, 0.5);
+  box-shadow: 8px 8px 30px -1px rgba(0, 0, 0, 0.5); 
+}
+.App-header ul li a{
+  color:white;
+  text-decoration: none;
+}
+/* --INTRO STYLES-- */
+
 .App-intro{
   transition:0.5s;
+  
 }
 .App-intro .typing {
   display: flex;
@@ -27,6 +68,7 @@
   font-size: calc(10px + 4vmin);
   align-items: center;
   justify-content: center;
+  z-index:9;
 }
 .typing h6{
   font-weight: 200;
@@ -34,7 +76,24 @@
   transform: translateY(100px);
   animation: fadeInUp 1000ms ease forwards;
 }
+/* --MAIN-- */
+  .content{
+    width:60%;
+    font-size:0.9em;
+    font-weight:300;
+    background:white;
+    padding:3%;
+    margin:auto;
+    margin-top:20%;
+    margin-bottom:10%;
+  }
+  @media (max-width:800px){
+    .content{
+      width:80%;
 
+    }
+  }
+/* --ANIMATIONS-- */
 @keyframes fadeInUp {
   100%{
     opacity:1;
