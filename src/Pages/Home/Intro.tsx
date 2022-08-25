@@ -1,13 +1,23 @@
 import { useEffect, useState } from "react";
+import useTypewriter from "react-typewriter-hook"
 
-type prop = { display: 'none' } | { display: 'block' };
-const Intro = (props: prop) => {
-	const str = "Workflow"   
+type Props = {
+	display: string,
+	opacity: number
+}
+const Intro = (props: Props) => {
+	const str = "Workflow"
+	const [animationState, setAnimationState] = useState({animationPlayState: "paused"})   
+	useEffect(()=>{
+		setTimeout(()=>{
+			setAnimationState({animationPlayState: "running"})
+		},1000)
+	},[])
 	return (
-		<div className='App-intro' style={props}>
+		<div className='App-intro' style={{display: props.display, opacity: props.opacity}}>
 			<div className='typing'>
-                <p>{str}</p>
-                <h6>bottom text</h6>
+                <p>{useTypewriter(str)}</p>
+                <h6 style={animationState}>Welcome!</h6>
             </div>
 		</div>
 	);

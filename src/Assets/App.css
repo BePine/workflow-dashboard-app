@@ -13,7 +13,9 @@
   background-color: #282c34;
 
 }
-
+.App-intro{
+  transition:0.5s;
+}
 .App-intro .typing {
   display: flex;
   flex-direction: column;
