@@ -14,7 +14,7 @@ const Intro = (props: Props) => {
 		},1000)
 	},[])
 	return (
-		<div className='App-intro' style={{display: props.display, opacity: props.opacity}}>
+		<div data-testid="introId" className='App-intro' style={{display: props.display, opacity: props.opacity}}>
 			<div className='typing'>
                 <p>{useTypewriter(str)}</p>
                 <h6 style={animationState}>Welcome!</h6>
