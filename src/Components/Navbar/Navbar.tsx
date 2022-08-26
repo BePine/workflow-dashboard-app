@@ -1,13 +1,15 @@
+import { Link } from "react-router-dom"
+
 const Navbar = () => {
     const linkArr=[
         {label:"Home", link:"/"},
-        {label:"App", link:"/"}
+        {label:"App", link:"/app"}
 
     ]
     return(
         <>
             <ul>
-                {linkArr.map(({label, link})=> <li key={label}><a href={link}>{label}</a></li>)}
+                {linkArr.map(({label, link})=> <li key={label}><Link to={link}>{label}</Link></li>)}
             </ul>
         </>
     )

@@ -15,8 +15,7 @@ body{
 .App-header ul{
   width:100%;
   height:3em;
-  position:relative;
-
+  margin-bottom:10%;
 }
 .App-header ul li:first-child{
   right:30%;
@@ -105,6 +104,23 @@ body{
       width:80%;
 
     }
+  }
+  /* --APP-- */
+  .appContainer{
+    background:white;
+    width:80%;
+    height:100vh;
+    margin:auto;
+    margin-bottom:5%;
+  }
+  /* --FOOTER-- */
+  .footer{
+    background-color:#13151a;
+    height:5em;
+    color:white;
+    font-size:0.8em;
+    line-height:5em;
+    border-top:groove 1px rgb(204, 202, 202);
   }
 /* --ANIMATIONS-- */
 @keyframes fadeInUp {
