@@ -42,14 +42,17 @@ body{
     
 }
 .App-header ul li:hover{
+  
   transform:scale(110%);
-    -webkit-box-shadow: 8px 8px 30px -1px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 8px 8px 30px -1px rgba(0, 0, 0, 0.5);
-  box-shadow: 8px 8px 30px -1px rgba(0, 0, 0, 0.5); 
+    -webkit-box-shadow: 8px 8px 30px -1px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 8px 8px 30px -1px rgba(0, 0, 0, 0.4);
+  box-shadow: 8px 8px 30px -1px rgba(0, 0, 0, 0.4); 
 }
 .App-header ul li a{
   color:white;
   text-decoration: none;
+  display:block;
+  
 }
 /* --INTRO STYLES-- */
 
@@ -77,14 +80,24 @@ body{
   animation: fadeInUp 1000ms ease forwards;
 }
 /* --MAIN-- */
+  h2{
+    margin:auto;
+    margin-top:10%;
+    color:white;
+    font-weight:500;
+    padding:1%;
+    width:50%;
+    border-bottom:1px solid white;
+
+  }
   .content{
-    width:60%;
+    width:90%;
     font-size:0.9em;
-    font-weight:300;
+    font-weight:400;
     background:white;
     padding:3%;
     margin:auto;
-    margin-top:20%;
+    margin-top:5%;
     margin-bottom:10%;
   }
   @media (max-width:800px){
