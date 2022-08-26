@@ -1,7 +1,7 @@
 import React, { ReactPropTypes, useEffect, useState } from 'react';
 import './Assets/App.css';
 import Main from './Pages/Home/Main';
-import WorkflowApp from './Pages/WorkflowApp/WorkflowApp';
+import WorkflowApp from './Pages/LoginPage/LoginPage';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
