@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import React from "react";
 import { auth } from "../../lib/Firebase";
-import {signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { AuthContext } from '../../Contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const navigate = useNavigate();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (e.target.type === 'email') {
@@ -14,14 +17,15 @@ const SignIn = () => {
 			setPassword(e.target.value);
 		}
 	};
+
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				// Signed in 
 				const user = userCredential.user;
-				console.log('signed in')
-
+				console.log(user)
+				navigate('../')
 				// ...
 			})
 			.catch(error => console.log(error.message));

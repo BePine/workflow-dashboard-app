@@ -109,14 +109,7 @@ body{
 
     }
   }
-  /* --APP-- */
-  .appContainer{
-    background:white;
-    width:80%;
-    height:100vh;
-    margin:auto;
-    margin-bottom:5%;
-  }
+  
   /* --FOOTER-- */
   .footer{
     background-color:#13151a;

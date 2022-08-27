@@ -16,9 +16,10 @@ const WorkflowApp = () => {
 		<>
 			<Header />
 			<div className='loginRegister'>
-				Please choose option:
+				
 				{choice === 1 ? (
 					<div className='loginContainer'>
+                        In case to use our app you must log in first<br></br>
 						<SignIn />
 						Don't have account yet?<button onClick={handleClickLogin}>register</button>
 
@@ -26,13 +27,13 @@ const WorkflowApp = () => {
 				) : null}
 				{choice === 2 ? (
 					<div className='registerContainer'>
+                        In case to use our app you must register first<br></br>
 						<SignUp />
 						already registered?<button onClick={handleClickRegister}>log in</button>
 
 					</div>
 				) : null}
 			</div>
-			<div className='appContainer'></div>
 			<Footer />
 		</>
 	);

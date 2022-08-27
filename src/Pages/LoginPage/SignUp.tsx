@@ -2,9 +2,11 @@ import { useState } from 'react';
 import React from "react";
 import { auth } from "../../lib/Firebase";
 import {createUserWithEmailAndPassword} from 'firebase/auth'
+import { useNavigate } from 'react-router-dom';
 const SignUp = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const navigate = useNavigate();
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (e.target.type === 'email') {
 			setEmail(e.target.value);
@@ -18,7 +20,8 @@ const SignUp = () => {
 			.then((userCredential) => {
 				// Signed in 
 				const user = userCredential.user;
-				console.log('signed up')
+				console.log(user)
+				
 				// ...
 			})
 			.catch(error => console.log(error.message));
