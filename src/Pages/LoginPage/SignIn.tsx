@@ -9,7 +9,6 @@ const SignIn = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const navigate = useNavigate();
-
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (e.target.type === 'email') {
 			setEmail(e.target.value);

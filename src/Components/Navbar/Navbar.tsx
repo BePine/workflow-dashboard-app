@@ -3,7 +3,8 @@ import { Link } from "react-router-dom"
 const Navbar = () => {
     const linkArr=[
         {label:"Home", link:"/"},
-        {label:"Login", link:"/authentication"}
+        {label:"Login", link:"/authentication"},
+        {label:"App", link:"/app"}
 
     ]
     return(

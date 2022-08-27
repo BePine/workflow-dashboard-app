@@ -4,7 +4,7 @@ import Header from '../../Components/Header/Header';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 
-const WorkflowApp = () => {
+const LoginPage = () => {
 	const [choice, setChoice] = useState<number>(2);
 	const handleClickLogin = () => {
 		setChoice(2);
@@ -22,7 +22,7 @@ const WorkflowApp = () => {
                         In case to use our app you must log in first<br></br>
 						<SignIn />
 						Don't have account yet?<button onClick={handleClickLogin}>register</button>
-
+                        
 					</div>
 				) : null}
 				{choice === 2 ? (
@@ -38,4 +38,4 @@ const WorkflowApp = () => {
 		</>
 	);
 };
-export default WorkflowApp;
+export default LoginPage;
