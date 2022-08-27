@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { handleLoginAuth } from '../../lib/Login';
+import React from "react";
+import { auth } from "../../lib/Firebase";
+import {signInWithEmailAndPassword } from "firebase/auth";
 
 const SignIn = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [data, setData] = useState<{email: string,password:string}>({email:"", password:""})
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (e.target.type === 'email') {
@@ -15,11 +16,19 @@ const SignIn = () => {
 	};
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
-		setData({email: email, password: password})
-		handleLoginAuth({email: email, password:password})
+		signInWithEmailAndPassword(auth, email, password)
+			.then((userCredential) => {
+				// Signed in 
+				const user = userCredential.user;
+				console.log('signed in')
+
+				// ...
+			})
+			.catch(error => console.log(error.message));
 		setPassword('');
 		setEmail('');
 	};
+	
 	
 	return (
 		<>

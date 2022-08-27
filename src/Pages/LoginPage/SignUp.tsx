@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { handleRegisterAuth } from '../../lib/Login';
-
+import React from "react";
+import { auth } from "../../lib/Firebase";
+import {createUserWithEmailAndPassword} from 'firebase/auth'
 const SignUp = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [data, setData] = useState<{email: string,password:string}>({email:"", password:""})
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (e.target.type === 'email') {
 			setEmail(e.target.value);
@@ -14,11 +14,21 @@ const SignUp = () => {
 	};
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
-		setData({email: email, password: password})
-		handleRegisterAuth({email: email, password:password})
+		createUserWithEmailAndPassword(auth, email, password)
+			.then((userCredential) => {
+				// Signed in 
+				const user = userCredential.user;
+				console.log('signed up')
+				// ...
+			})
+			.catch(error => console.log(error.message));
 		setPassword('');
 		setEmail('');
+		
 	};
+	
+	
+
 
 	return (
 		<>
