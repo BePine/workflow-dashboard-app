@@ -2,7 +2,7 @@ import Navbar from "../Navbar/Navbar"
 
 const Header = () => {
     return(
-        <div className="App-header">
+        <div data-testid="headerElement" className="App-header">
             <Navbar/>
         </div>
     )    
