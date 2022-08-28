@@ -7,7 +7,7 @@ describe("Intro",()=>{
         const introElement = screen.getByTestId("introId");
         expect(introElement).toBeVisible();
       });
-      test('renders Intro element', () => {
+      test('derenders Intro element', () => {
         render(<Intro display="none" opacity={0}/>);
         const introElement = screen.getByTestId("introId");
         expect(introElement).not.toBeVisible();
