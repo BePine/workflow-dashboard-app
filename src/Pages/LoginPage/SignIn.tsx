@@ -56,7 +56,7 @@ const SignIn = () => {
 			{loginCheck ? (
 				null
 			) : (
-				<form onSubmit={handleSubmit}>
+				<form role="form" onSubmit={handleSubmit}>
 				<input
 					type='email'
 					onChange={handleChange}
@@ -71,7 +71,7 @@ const SignIn = () => {
 					value={password}
 					required
 				/>
-				<button type='submit'>login</button>
+				<button data-testid="loginButton" type='submit'>login</button>
 			</form>
 			)}
 		</>

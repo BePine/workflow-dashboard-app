@@ -35,7 +35,7 @@ const Navbar = () => {
     }
 	return (
 		<>
-			<ul>
+			<ul role="list">
 				{linkArr.map(({ label, link }) => (
 					<li key={label}>
 						{headerChange === false ? (

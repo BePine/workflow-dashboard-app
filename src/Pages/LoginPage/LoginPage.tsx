@@ -15,9 +15,9 @@ const LoginPage = () => {
 	return (
 		<>
 			<Header />
-			<div className='authContainer'>
+			<div className='authContainer' role="main">
 				{choice === 2 ? (
-					<div className='loginContainer'>
+					<div className='loginContainer' data-testid="loginCont">
 						<p>In case to use our app you must log in first</p><br></br>
 						<SignIn />
 						<p>Don't have account yet?</p>
@@ -25,7 +25,7 @@ const LoginPage = () => {
 					</div>
 				) : null}
 				{choice === 1 ? (
-					<div className='loginContainer'>
+					<div className='loginContainer' data-testid="regCont">
 						<p>In case to use our app you must register first</p><br></br>
 						<SignUp />
 						<p>already registered?</p>

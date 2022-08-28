@@ -29,7 +29,7 @@ const SignUp = () => {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit}>
+			<form role="form" onSubmit={handleSubmit}>
 				<input
 					type='email'
 					onChange={handleChange}
