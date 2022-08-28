@@ -7,29 +7,29 @@ import SignUp from './SignUp';
 const LoginPage = () => {
 	const [choice, setChoice] = useState<number>(2);
 	const handleClickLogin = () => {
-		setChoice(2);
+		setChoice(1);
 	};
 	const handleClickRegister = () => {
-		setChoice(1);
+		setChoice(2);
 	};
 	return (
 		<>
 			<Header />
-			<div className='loginRegister'>
+			<div className='authContainer'>
 				{choice === 2 ? (
 					<div className='loginContainer'>
-						In case to use our app you must log in first<br></br>
+						<p>In case to use our app you must log in first</p><br></br>
 						<SignIn />
-						Don't have account yet?
-						<button onClick={handleClickLogin}>register</button>
+						<p>Don't have account yet?</p>
+						<button className="hrefStyleOnly" onClick={handleClickLogin}>register</button>
 					</div>
 				) : null}
 				{choice === 1 ? (
-					<div className='registerContainer'>
-						In case to use our app you must register first<br></br>
+					<div className='loginContainer'>
+						<p>In case to use our app you must register first</p><br></br>
 						<SignUp />
-						already registered?
-						<button onClick={handleClickRegister}>log in</button>
+						<p>already registered?</p>
+						<button className="hrefStyleOnly" onClick={handleClickRegister}>login</button>
 					</div>
 				) : null}
 			</div>

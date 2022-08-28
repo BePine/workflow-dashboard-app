@@ -20,7 +20,6 @@ const SignUp = () => {
 			.then((userCredential) => {
 				const user = userCredential.user;
 				console.log(user);
-				alert("Registration Successful, logged in");
 				// ...
 			})
 			.catch((error) => console.log(error.message));

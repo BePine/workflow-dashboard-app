@@ -23,28 +23,18 @@ const SignIn = () => {
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				// Signed in
-				setPersistence(auth, browserSessionPersistence)
-					.then(() => {				
-						return signInWithEmailAndPassword(auth, email, password);
-					})
-					.catch((error) => {
-						const errorCode = error.code;
-						const errorMessage = error.message;
-					});
 				const user = userCredential.user;
 				console.log(user);
-				alert("Login Successful");
 				// ...
 			})
 			
 			.catch(function (error) {
 				console.log(error.message)
-				alert("Please enter correct password")				
+				alert('wrong password or email')
 			});
 		setPassword('');
 		setEmail('');
 	};
-	const auth = getAuth();
 	onAuthStateChanged(auth, (user) => {
 		if (user) {
 			// User is signed in, see docs for a list of available properties

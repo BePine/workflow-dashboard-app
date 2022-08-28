@@ -1,10 +1,10 @@
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { auth } from '../../lib/Firebase';
 
 const Navbar = () => {
 	const [headerChange, setHeaderChange] = useState<true | false>(true);
-	const auth = getAuth();
     
 	onAuthStateChanged(auth, (user) => {
 		if (user) {
@@ -21,7 +21,7 @@ const Navbar = () => {
 	const linkArr = [
 		{ label: 'Home', link: '/' },
 		{
-			label: headerChange ? 'Login' : 'log out',
+			label: headerChange ? 'Login' : 'Logout',
 			link: headerChange ? '/authentication' : '/',
 		},
 		{ label: 'App', link: '/app' },
@@ -39,13 +39,13 @@ const Navbar = () => {
 				{linkArr.map(({ label, link }) => (
 					<li key={label}>
 						{headerChange === false ? (
-							label === 'log out' ? (
+							label === 'Logout' ? (
 								<button onClick={handleClick}>{label}</button>
 							) : (
 								<Link to={link}>{label}</Link>
 							)
 						) : (
-							<Link to={link}>{label}</Link>
+                            <Link to={link}>{label}</Link>
 						)}
 					</li>
 				))}

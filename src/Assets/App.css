@@ -11,8 +11,67 @@ body{
 
 }
 
-/* --MULTIPLEUSE STYLES-- */
+/* --GLOBAL STYLES-- */
+button{
+  background: #61dafb;
+  width:20%;
+  height:3em;
+  margin:auto;
+  line-height:2em;
+  float:left;
+  border-radius:20px;
+  transition:0.2s;
+  border:none;
+  -webkit-box-shadow: 8px 8px 10px -1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 8px 8px 10px -1px rgba(0, 0, 0, 0.5);
+  box-shadow: 8px 8px 10px -1px rgba(0, 0, 0, 0.5);
+  margin-top:0.3em;
+}
+button:hover{
+  transform:scale(110%);
+  cursor:pointer;
+}
+form{
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  margin-top:2%;
+}
+p{
+  padding-top:5%;
+  color:white;
+}
+input{
+  border:none;
+  width:20%;
+  line-height:2em;
+  float:left;
+  border-radius:10px;
+  transition:0.2s;
+  outline:none;
+  padding:0.1em;
+  font-size:0.8em;
+  font-weight:200;
+  margin:0.5em;
+  -webkit-box-shadow: 8px 8px 10px -1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 8px 8px 10px -1px rgba(0, 0, 0, 0.5);
+  box-shadow: 8px 8px 10px -1px rgba(0, 0, 0, 0.5);
+}
 
+.hrefStyleOnly{
+  all: unset;
+  color: lightblue;
+  font-size:0.9em;
+  font-weight:300;
+  text-decoration: underline;
+}
+.hrefStyleOnly:hover{
+  transform:none;
+  color: #85a6b1;
+  cursor:pointer;
+}
 /* --HEADER STYLES-- */
 
 
@@ -28,6 +87,24 @@ body{
 .App-header ul li:nth-child(2){
   right:5%;
   position:absolute;
+}
+.App-header ul li:nth-child(3){
+  left:5%;
+  position:absolute;
+}
+.App-header ul li button{
+  box-shadow:none;
+  color:white;
+  font-size: inherit;
+  width:100%;
+  height:90%;
+  line-height:100%;
+}
+
+.App-header ul li button:hover{
+  transform:none;
+  cursor:pointer;
+  font-size: inherit;
 }
 .App-header ul li {
   list-style: none;
@@ -51,14 +128,16 @@ body{
     -moz-box-shadow: 8px 8px 30px -1px rgba(0, 0, 0, 0.4);
   box-shadow: 8px 8px 30px -1px rgba(0, 0, 0, 0.4); 
 }
-.App-header ul li a{
+.App-header ul li a, .App-header ul li button a{
   color:white;
   text-decoration: none;
   display:block;
   
 }
 /* --INTRO STYLES-- */
-
+.introParagraph{
+  color:black;
+}
 .App-intro{
   transition:0.5s;
   
@@ -109,7 +188,12 @@ body{
 
     }
   }
-  
+  /* --LOGIN CONTAINER-- */
+  .loginContainer{
+    background:#ffffff30;
+    min-height:80vh;
+    z-index:0;
+  }
   /* --FOOTER-- */
   .footer{
     background-color:#13151a;
@@ -118,6 +202,7 @@ body{
     font-size:0.8em;
     line-height:5em;
     border-top:groove 1px rgb(204, 202, 202);
+ 
   }
 /* --ANIMATIONS-- */
 @keyframes fadeInUp {
