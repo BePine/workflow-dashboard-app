@@ -1,15 +1,16 @@
 import { useContext, useState } from 'react';
-import React from "react";
-import { auth } from "../../lib/Firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import React from 'react';
+import { auth } from '../../lib/Firebase';
+import { signInWithEmailAndPassword, setPersistence, browserSessionPersistence, getAuth, onAuthStateChanged } from 'firebase/auth';
 import { AuthContext } from '../../Contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [loginCheck, setLoginCheck] = useState<true | false | undefined>();
 	const navigate = useNavigate();
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (e.target.type === 'email') {
 			setEmail(e.target.value);
 		} else {
@@ -21,36 +22,68 @@ const SignIn = () => {
 		e.preventDefault();
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
-				// Signed in 
+				// Signed in
+				setPersistence(auth, browserSessionPersistence)
+					.then(() => {				
+						return signInWithEmailAndPassword(auth, email, password);
+					})
+					.catch((error) => {
+						const errorCode = error.code;
+						const errorMessage = error.message;
+					});
 				const user = userCredential.user;
-				console.log(user)
-				navigate('../')
+				console.log(user);
+				alert("Login Successful");
 				// ...
 			})
-			.catch(error => console.log(error.message));
+			
+			.catch(function (error) {
+				console.log(error.message)
+				alert("Please enter correct password")				
+			});
 		setPassword('');
 		setEmail('');
 	};
-	
-	
+	const auth = getAuth();
+	onAuthStateChanged(auth, (user) => {
+		if (user) {
+			// User is signed in, see docs for a list of available properties
+			// https://firebase.google.com/docs/reference/js/firebase.User
+			const uid = user.uid;
+			setLoginCheck(true);
+			navigate('../');
+
+			// ...
+		} else {
+			// User is signed out
+			// ...
+			setLoginCheck(false);
+			
+		}
+	});
 	return (
 		<>
-			<form onSubmit={handleSubmit}>
+			{loginCheck ? (
+				null
+			) : (
+				<form onSubmit={handleSubmit}>
 				<input
 					type='email'
 					onChange={handleChange}
 					placeholder='e-mail'
 					value={email}
+					required
 				/>
 				<input
 					type='password'
 					onChange={handleChange}
 					placeholder='password'
 					value={password}
-                    required
+					required
 				/>
-				<button type='submit'>Login</button>
+				<button type='submit'>login</button>
 			</form>
+			)}
 		</>
 	);
 };

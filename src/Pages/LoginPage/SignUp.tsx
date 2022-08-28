@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import React from "react";
-import { auth } from "../../lib/Firebase";
-import {createUserWithEmailAndPassword} from 'firebase/auth'
+import React from 'react';
+import { auth } from '../../lib/Firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 const SignUp = () => {
 	const [email, setEmail] = useState('');
@@ -18,20 +18,15 @@ const SignUp = () => {
 		e.preventDefault();
 		createUserWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
-				// Signed in 
 				const user = userCredential.user;
-				console.log(user)
-				
+				console.log(user);
+				alert("Registration Successful, logged in");
 				// ...
 			})
-			.catch(error => console.log(error.message));
+			.catch((error) => console.log(error.message));
 		setPassword('');
 		setEmail('');
-		
 	};
-	
-	
-
 
 	return (
 		<>

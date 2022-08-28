@@ -5,21 +5,16 @@ import { Route, Routes } from 'react-router-dom';
 import LoginPage from './Pages/LoginPage/LoginPage';
 import AppPage from './Pages/AppPage/AppPage';
 
-
 function App() {
-  
-  return (
-    <div className="App">
-        
-          <Routes>
-            <Route path="/" element={<Main/>}/>
-            <Route path="/authentication" element={<LoginPage/>}/>
-            <Route path="/app" element={<AppPage/>}/>
-
-          </Routes>
-       
-    </div>
-  );
+	return (
+		<div className='App'>
+			<Routes>
+				<Route path='/' element={<Main />} />
+				<Route path='/authentication' element={<LoginPage />} />
+				<Route path='/app' element={<AppPage />} />
+			</Routes>
+		</div>
+	);
 }
 
 export default App;

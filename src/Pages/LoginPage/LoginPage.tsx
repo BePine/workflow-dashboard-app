@@ -16,21 +16,20 @@ const LoginPage = () => {
 		<>
 			<Header />
 			<div className='loginRegister'>
-				
-				{choice === 1 ? (
+				{choice === 2 ? (
 					<div className='loginContainer'>
-                        In case to use our app you must log in first<br></br>
+						In case to use our app you must log in first<br></br>
 						<SignIn />
-						Don't have account yet?<button onClick={handleClickLogin}>register</button>
-                        
+						Don't have account yet?
+						<button onClick={handleClickLogin}>register</button>
 					</div>
 				) : null}
-				{choice === 2 ? (
+				{choice === 1 ? (
 					<div className='registerContainer'>
-                        In case to use our app you must register first<br></br>
+						In case to use our app you must register first<br></br>
 						<SignUp />
-						already registered?<button onClick={handleClickRegister}>log in</button>
-
+						already registered?
+						<button onClick={handleClickRegister}>log in</button>
 					</div>
 				) : null}
 			</div>
