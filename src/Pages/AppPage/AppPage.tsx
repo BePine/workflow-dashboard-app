@@ -13,7 +13,7 @@ const AppPage = () => {
 			<div className='appContainer'>
                 <AppNavbar/>
             </div>
-            <p>All icons used in app are from <a href="https://icons8.com" className="hrefStyleOnly">https://icons8.com</a></p>
+            
 			<Footer />
 		</>
 	);

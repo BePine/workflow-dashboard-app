@@ -34,6 +34,7 @@ const Main = () => {
             <div className="content">Workflow is our application dedicated for people looking forward to organize
             their workflow as the name suggests. With workflow you can easily schedule all your incoming meetings, 
             manage your todo list and plan upcoming days of work.</div>
+            <img className="mainImage" src={require('../../Assets/Images/remote-team.png')} alt="" />
             <Footer/>
         </>
     )

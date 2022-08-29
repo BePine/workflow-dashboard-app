@@ -31,6 +31,8 @@ const SignUp = () => {
 		<>
 			<form role="form" onSubmit={handleSubmit}>
 				<input
+					title="email must contain extension after domain E.g. '.com'"
+					pattern="[A-Za-z0-9._+-]+@[A-Za-z0-9-]+\.[a-z]{2,}"
 					type='email'
 					onChange={handleChange}
 					placeholder='e-mail'
@@ -38,6 +40,8 @@ const SignUp = () => {
 					required
 				/>
 				<input
+					title="Password must have at least 8 letters and can't contain symbols"
+					pattern="[A-Za-z0-9]{8,}"
 					type='password'
 					onChange={handleChange}
 					placeholder='password'
