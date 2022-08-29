@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { FormEvent, useContext, useState } from 'react';
 import React from 'react';
 import { auth } from '../../lib/Firebase';
 import { signInWithEmailAndPassword, setPersistence, browserSessionPersistence, getAuth, onAuthStateChanged } from 'firebase/auth';
@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const SignIn = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [loginCheck, setLoginCheck] = useState<true | false | undefined>();
+	const [loginCheck, setLoginCheck] = useState<boolean | undefined>();
 	const navigate = useNavigate();
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (e.target.type === 'email') {
@@ -41,7 +41,7 @@ const SignIn = () => {
 			// https://firebase.google.com/docs/reference/js/firebase.User
 			const uid = user.uid;
 			setLoginCheck(true);
-			navigate('../');
+			navigate('../App');
 
 			// ...
 		} else {
