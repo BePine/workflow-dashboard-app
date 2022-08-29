@@ -274,15 +274,20 @@ h2{
   padding-top:2%;
   padding-bottom:2%;
   border:none;
-  background:white;
   flex:2;
   border-right:1px solid lightcoral;
   transition:0.2s;
 }
+
 .appNav button:hover{
-  background:lightcoral;
+  /* this important is here to make hover takeover the element inbuild style which is white or lightcoral
+  depending on variable state */
+  background:lightcoral !important; 
   flex:3;
+  cursor:pointer;
 }
+
+
 .appNav button:nth-child(4){
   border:none;
 }

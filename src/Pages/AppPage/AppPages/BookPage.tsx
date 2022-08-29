@@ -1,6 +1,8 @@
 const BookPage = () => {
     return(
-        <></>
+        <>
+            book
+        </>
     )
 }
 
