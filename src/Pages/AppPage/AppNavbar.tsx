@@ -1,11 +1,11 @@
-import { FormEvent, useState } from 'react';
+import { useContext, useState } from 'react';
+import PageContext from '../../Contexts/PageContext'
 import AppContent from './AppContent';
 const nonActiveLinkStyles = { backgroundColor: 'white', flex: 2 };
 const activeLinkStyles = { backgroundColor: 'lightcoral', flex: 3 };
 const AppNavbar = () => {
-	const [page, setPage] = useState<1 | 2 | 3 | 4>(1);
+	const {page, setPage} = useContext(PageContext)
 	const [activeLink, setActiveLink] = useState('home');
-
 	const handleClickHome = () => {
 		setActiveLink('home');
 		setPage(1);
