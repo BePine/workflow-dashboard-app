@@ -3,16 +3,17 @@ import PageContext, { TaskType } from '../../../../Contexts/PageContext';
 
 const HomePage = () => {
 	const profileImageUrl = require('../../../../Assets/Images/icons8-test-account-50.png');
-	const { setPage, setData, tasks } = useContext(PageContext);
+	const { setPage, setData, allTasks, setAllTasks } = useContext(PageContext);
 	
 	const handleClick = (object: TaskType) => {
 		setPage(12);
+		console.log(object)
 		setData(object);
 	};
 	const handleNewTaskClick = () => {
 		setPage(11);
 	};
-	console.log(tasks);
+	console.log(allTasks);
 	return (
 		<>
 			<div className='appContent'>
@@ -21,7 +22,7 @@ const HomePage = () => {
 				<h5>Have a good day!</h5>
 				<h3>My tasks</h3>
 				<div className='tasksContainer'>
-					{tasks?.map(({ progress, title, tasks, finished, deadLine }:TaskType, index:number) => (
+					{allTasks?.map(({ progress, title, tasks, finished, deadLine }:TaskType, index:number) => (
 						<div
 							onClick={() =>
 								handleClick({

@@ -4,7 +4,7 @@ type PageContextProviderProps = {
 	children: React.ReactNode;
 };
 export interface TaskType {
-	key?: number;
+	key?: number | string;
 	progress?: number;
 	tasks?: string[];
 	title?: string;
@@ -17,9 +17,9 @@ const PageContext = createContext<any>({});
 export const PageProvider = ({ children }: PageContextProviderProps) => {
 	const [page, setPage] = useState(1);
 	const [data, setData] = useState<TaskType>({});
-	const [newTask, setNewTask] = useState<TaskType>({});
-	const [tasks, setTasks] = useState<Array<TaskType>>([
+	const [allTasks, setAllTasks] = useState<Array<TaskType>>([
 		{
+			key: 'cleaning',
 			progress: 0,
 			title: 'cleaning',
 			tasks: ['clean windows', 'fuck'],
@@ -34,10 +34,9 @@ export const PageProvider = ({ children }: PageContextProviderProps) => {
 				setPage,
 				data,
 				setData,
-				tasks,
-				setTasks,
-				newTask,
-				setNewTask,
+				allTasks,
+				setAllTasks,
+
 
 			}}
 		>
