@@ -3,7 +3,7 @@ import { ChangeEvent, FormEvent, useContext, useState } from 'react';
 import PageContext, { TaskType } from '../../../../Contexts/PageContext';
 
 const NewTaskPage = () => {
-	const { page, setPage, setAllTasks } = useContext(PageContext);
+	const { page, setPage, setAllTasks, setLatestTask } = useContext(PageContext);
 	const [inputTitle, setInputTitle] = useState('');
 	const [inputTask, setInputTask] = useState('');
 	const [tasks, setTasks] = useState<string[]>([]);
@@ -32,6 +32,7 @@ const NewTaskPage = () => {
 		setAllTasks((current: Array<TaskType>) => [...current, sendData]);
 		setInputTitle('');
 		setPage(1);
+		setLatestTask(sendData)
 	};
 
 	return (

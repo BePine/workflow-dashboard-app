@@ -3,8 +3,7 @@ import PageContext, { TaskType } from '../../../../Contexts/PageContext';
 
 const HomePage = () => {
 	const profileImageUrl = require('../../../../Assets/Images/icons8-test-account-50.png');
-	const { setPage, setData, allTasks, setAllTasks } = useContext(PageContext);
-	
+	const { setPage, setData, allTasks, setAllTasks, latestTask } = useContext(PageContext);
 	const handleClick = (object: TaskType) => {
 		setPage(12);
 		console.log(object)
@@ -47,6 +46,7 @@ const HomePage = () => {
 					</div>
 				</div>
 				<h3>Latest Project</h3>
+				<div onClick={() =>handleClick(latestTask)}>{latestTask?.title}</div>
 			</div>
 		</>
 	);

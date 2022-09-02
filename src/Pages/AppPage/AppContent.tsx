@@ -1,5 +1,4 @@
 import { PropsWithChildren } from "react"
-import BookMarkPage from "./AppPages/BookMarkPage";
 import BookPage from "./AppPages/BookPage";
 import HomePage from "./AppPages/HomePage/HomePage";
 import NewTaskPage from "./AppPages/HomePage/NewTaskPage";
@@ -15,8 +14,7 @@ const AppContent = (props:PropsWithChildren<Props>) => {
         <>
             {props.page===1?<HomePage/> : null}
             {props.page===2?<BookPage/> : null}
-            {props.page===3?<BookMarkPage/> : null}
-            {props.page===4?<SettingsPage/> : null}
+            {props.page===3?<SettingsPage/> : null}
             {props.page===11? <NewTaskPage/> : null}
             {props.page===12? <TaskPage/> : null}
 

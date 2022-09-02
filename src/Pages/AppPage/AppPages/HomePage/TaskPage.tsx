@@ -1,26 +1,14 @@
-import { ChangeEvent, FormEvent, useContext, useState } from "react"
-import PageContext, { TaskType } from "../../../../Contexts/PageContext"
+import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react"
+import PageContext, { FavTask, TaskType } from "../../../../Contexts/PageContext"
 
 const TaskPage = () => {
-	const {setPage, data,favTask, setFavTask, setClickFavSwitch, clickFavSwitch} = useContext(PageContext)
+	const {setPage, data, allTasks, setAllTasks} = useContext(PageContext)
     const handleBackClick = () => {
         setPage(1)
     }
-    const handleFavouriteClick = () => {
-        if(clickFavSwitch){
-            const temp = favTask.filter((task:TaskType)=>{return task.title?.includes(data.title)})
-            setFavTask()
-            setClickFavSwitch(false)
-        }
-        else{
-            if(favTask===undefined){
-            setFavTask([data])
-            }
-            else{
-                setFavTask([...favTask, data])
-            }
-            setClickFavSwitch(true)
-        }
+    const handleDeleteClick = () => {
+        setAllTasks(allTasks.filter((item:TaskType)=>item.title != data.title))
+        setPage(1)
     }
     return(
         <>
@@ -28,7 +16,7 @@ const TaskPage = () => {
 					<div className='goBack' onClick={handleBackClick}>
 						back
 					</div>
-                    <div onClick={handleFavouriteClick}>favourite</div>
+                    <div onClick={handleDeleteClick}>delete</div>
 					<div>{data?.title}</div>
                     <div>{data.tasks?.map((task:string[], index:number)=><div key={index}>{task}</div>)}</div>
 				</div>

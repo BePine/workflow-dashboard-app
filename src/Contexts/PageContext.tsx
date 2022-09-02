@@ -11,14 +11,16 @@ export interface TaskType {
 	deadLine?: string;
 	finished?: boolean;
 }
-
+export interface FavTask{
+	title: string,
+	value: boolean
+}
 const PageContext = createContext<any>({});
 
 export const PageProvider = ({ children }: PageContextProviderProps) => {
 	const [page, setPage] = useState(1);
 	const [data, setData] = useState<TaskType>({});
-    const [clickFavSwitch, setClickFavSwitch] = useState<boolean>(false)
-	const [favTask, setFavTask] = useState<Array<TaskType>>([{}])
+	const [latestTask, setLatestTask] = useState<TaskType>({})
 	const [allTasks, setAllTasks] = useState<Array<TaskType>>([
 		{
 			key: 'cleaning',
@@ -38,10 +40,8 @@ export const PageProvider = ({ children }: PageContextProviderProps) => {
 				setData,
 				allTasks,
 				setAllTasks,
-				setFavTask,
-				favTask,
-				clickFavSwitch,
-				setClickFavSwitch
+				latestTask,
+				setLatestTask
 			}}
 		>
 			{children}

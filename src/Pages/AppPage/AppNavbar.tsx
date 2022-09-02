@@ -14,13 +14,9 @@ const AppNavbar = () => {
 		setActiveLink('book');
 		setPage(2);
 	};
-	const handleClickBookMark = () => {
-		setActiveLink('bookMark');
-		setPage(3);
-	};
 	const handleClickSettings = () => {
 		setActiveLink('settings');
-		setPage(4);
+		setPage(3);
 	};
 	return (
 		<>
@@ -36,17 +32,6 @@ const AppNavbar = () => {
 					style={activeLink === 'book' ? activeLinkStyles : nonActiveLinkStyles}
 				>
 					<img src={require('../../Assets/Images/icons8-book-50.png')} alt='' />
-				</button>
-				<button
-					onClick={handleClickBookMark}
-					style={
-						activeLink === 'bookMark' ? activeLinkStyles : nonActiveLinkStyles
-					}
-				>
-					<img
-						src={require('../../Assets/Images/icons8-book-mark-50.png')}
-						alt=''
-					/>
 				</button>
 				<button
 					onClick={handleClickSettings}
