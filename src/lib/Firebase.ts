@@ -1,9 +1,10 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { collection, getDoc, getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
+import { doc, setDoc } from "firebase/firestore"; 
 import { getAuth} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-
 
 const firebaseConfig = {
   apiKey: "AIzaSyCRp-FvldqmyvSyWYZE4iJkG1IVsyW_XPw",
@@ -15,14 +16,35 @@ const firebaseConfig = {
   measurementId: "G-Q9X0PEBHWK"
 };
 
-
-
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+export const db = getFirestore(app);
+const cityRef = doc(db, 'cities', 'BJ');
 
+const analytics = getAnalytics(app);
 
 
 const auth = getAuth(app);
 
+
+export const setDocument = (allTasks:any) => {
+  const uid:any = auth.currentUser?.uid
+  const userRef = doc(db, 'users', uid)
+  setDoc(userRef,{
+    data: allTasks
+  }, { merge: true } )
+    
+}
+export const getDocument = async ()=>{
+  const uid:any = auth.currentUser?.uid
+  const userRef = doc(db, 'users', uid)
+  const docSnap = await getDoc(userRef)
+  if(docSnap.exists()){
+    let value = docSnap.data()
+    return value
+  }
+  else{
+    console.log('you don t have any data saved for this account')
+  }
+}
 export {auth}
   

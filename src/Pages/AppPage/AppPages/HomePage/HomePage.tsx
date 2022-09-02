@@ -1,9 +1,13 @@
+import { doc, setDoc } from 'firebase/firestore';
 import { useContext, useEffect, useState } from 'react';
 import PageContext, { TaskType } from '../../../../Contexts/PageContext';
+import { db, getDocument, setDocument } from '../../../../lib/Firebase';
 
 const HomePage = () => {
 	const profileImageUrl = require('../../../../Assets/Images/icons8-test-account-50.png');
 	const { setPage, setData, allTasks, setAllTasks, latestTask } = useContext(PageContext);
+	
+
 	const handleClick = (object: TaskType) => {
 		setPage(12);
 		console.log(object)
@@ -12,6 +16,11 @@ const HomePage = () => {
 	const handleNewTaskClick = () => {
 		setPage(11);
 	};
+	const handleTest = async () =>{
+		// setDocument(allTasks)
+		const value = await getDocument()
+		setAllTasks(value?.data)
+	}
 	console.log(allTasks);
 	return (
 		<>
@@ -47,7 +56,9 @@ const HomePage = () => {
 				</div>
 				<h3>Latest Project</h3>
 				<div onClick={() =>handleClick(latestTask)}>{latestTask?.title}</div>
+			    <button onClick={handleTest}>save data</button>
 			</div>
+
 		</>
 	);
 };

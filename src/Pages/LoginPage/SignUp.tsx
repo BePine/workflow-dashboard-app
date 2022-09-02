@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import React from 'react';
 import { auth } from '../../lib/Firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { getStorage, ref, uploadBytes } from "firebase/storage";
+import PageContext from '../../Contexts/PageContext';
 const SignUp = () => {
 	const [email, setEmail] = useState('');
+	const { setPage, setAllTasks, latestTask } = useContext(PageContext);
 	const [password, setPassword] = useState('');
 	const navigate = useNavigate();
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,7 +22,8 @@ const SignUp = () => {
 		createUserWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				const user = userCredential.user;
-				console.log(user);
+				
+				
 				// ...
 			})
 			.catch((error) => console.log(error.message));

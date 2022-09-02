@@ -423,18 +423,18 @@ h2{
   padding:1px;
   
 }
-.calendar .calendarTile{
+.calendar div .calendarTile{
   border-right:1px solid;
   border-bottom:1px solid;
   cursor:pointer;
   border-radius:10px;
   min-height:4rem
 }
-.calendar .calendarTile:hover{
+.calendar div .calendarTile:hover{
   background:#ff6363;
   transition:0.4s;
 }
-.calendar .calendarTile .hiddenMenu{
+.calendar div .hiddenMenu{
   
   position:absolute;
   background:#ff6363;
@@ -448,7 +448,7 @@ h2{
   top:80%;
 
 }
-.calendar .calendarTile .hiddenMenu .close{
+.calendar div .hiddenMenu .close{
   position:absolute;
   right:3%;
   top:3%;
@@ -456,7 +456,7 @@ h2{
   z-index:10;
   transition:0.15s;
 }
-.calendar .calendarTile .hiddenMenu .close:hover{
+.calendar div .hiddenMenu .close:hover{
   color:#000000;
 }
 

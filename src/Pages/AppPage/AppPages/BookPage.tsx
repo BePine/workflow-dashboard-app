@@ -43,7 +43,6 @@ const BookPage = () => {
 	};
     const handleClose = (e:React.MouseEvent<HTMLElement>) => {
 		setHiddenMenu(0);
-        e.stopPropagation()
 
     }
     const handleChange = (e:ChangeEvent<HTMLInputElement>)=>{
@@ -51,14 +50,14 @@ const BookPage = () => {
     }
     const handleSet = (e:any) => {
         e.preventDefault()
-        e.stopPropagation()
         e.currentTarget.parentElement.parentElement.title =  inputValue
 		setHiddenMenu(0);
+		setInputValue("")
     }
     const handleResetClick = (e:any) => {
-        e.stopPropagation()
         e.currentTarget.parentElement.parentElement.title =  ""
 		setHiddenMenu(0);
+		setInputValue("")
         
     }
 	return (
@@ -78,23 +77,25 @@ const BookPage = () => {
 			</h3>
 			<div className='calendar'>
 				{calendar.map((tile, index) => (
-					<div className="calendarTile" key={index} onClick={()=>{ handleTileClick(tile)}}>
-						{tile}
-						<div
-                            className="hiddenMenu"
-                            
-							style={
-								hiddenMenu == tile ? { display: 'block' } : { display: 'none' }
-							}
-						>
-                            <div className="close" onClick={handleClose}>close</div>
-                            <form onSubmit={handleSet}>
-                                submit title for your task report
-                                <input type="text" placeholder="title" value={inputValue} onChange={handleChange}/>
-                                <button type="submit">set</button>
-                            </form>
-                            <button onClick={handleResetClick}>clear all for this day</button>
+					<div>
+						<div className="calendarTile" key={index} onClick={()=>{ handleTileClick(tile)}}>
+							{tile}
 						</div>
+						<div
+								className="hiddenMenu"
+								style={
+									hiddenMenu == tile ? { display: 'block' } : { display: 'none' }
+								}
+							>
+								<div className="close" onClick={handleClose}>close</div>
+								<form onSubmit={handleSet}>
+									submit title for your task report
+									<input type="text" placeholder="title" value={inputValue} onChange={handleChange}/>
+									<button type="submit">set</button>
+								</form>
+								<button onClick={handleResetClick}>clear all for this day</button>
+							</div>
+						
 					</div>
 				))}
                 

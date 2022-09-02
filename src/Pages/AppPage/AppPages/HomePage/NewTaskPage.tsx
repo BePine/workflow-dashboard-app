@@ -1,6 +1,7 @@
 import { ifError } from 'assert';
 import { ChangeEvent, FormEvent, useContext, useState } from 'react';
 import PageContext, { TaskType } from '../../../../Contexts/PageContext';
+import { setDocument } from '../../../../lib/Firebase';
 
 const NewTaskPage = () => {
 	const { page, setPage, setAllTasks, setLatestTask } = useContext(PageContext);
@@ -33,6 +34,7 @@ const NewTaskPage = () => {
 		setInputTitle('');
 		setPage(1);
 		setLatestTask(sendData)
+		// setDocument((current: any)=>[...current, sendData])
 	};
 
 	return (
