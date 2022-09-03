@@ -2,6 +2,7 @@ import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { auth } from '../../lib/Firebase';
+import './navbar.css'
 
 const Navbar = () => {
 	const [headerChange, setHeaderChange] = useState<boolean>(false);

@@ -5,7 +5,7 @@ import Header from '../../Components/Header/Header';
 import { PageProvider } from '../../Contexts/PageContext';
 import { auth } from '../../lib/Firebase';
 import AppNavbar from './AppNavbar';
-
+import './appWindow.css'
 const AppPage = () => {
 	const navigate = useNavigate();
 	

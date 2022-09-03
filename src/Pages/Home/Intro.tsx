@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import useTypewriter from "react-typewriter-hook"
-
+import './intro.css'
 type Props = {
 	display: string,
 	opacity: number

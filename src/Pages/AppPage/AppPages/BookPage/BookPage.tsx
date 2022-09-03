@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from 'react';
-import PageContext from '../../../Contexts/PageContext';
-
+import './bookPage.css'
+import PageContext from '../../../../Contexts/PageContext';
 const BookPage = () => {
 	const monthNames = [
 		'January',
@@ -25,7 +25,7 @@ const BookPage = () => {
 		'Friday',
 		'Saturday',
 	];
-	const profileImageUrl = require('../../../Assets/Images/icons8-test-account-50.png');
+	const profileImageUrl = require('../../../../Assets/Images/icons8-test-account-50.png');
 	const date = new Date();
 	const day = date.getDate();
 	const month = date.getMonth();
@@ -70,7 +70,7 @@ const BookPage = () => {
 
 	};
 	const handleResetClick = (e: any) => {
-		setColoredTiles({tileHandle: 'white'})
+		coloredTiles[tileHandle] = 'white';
 		setHiddenMenu(0);
 		setInputValue('');
 	};
@@ -82,23 +82,23 @@ const BookPage = () => {
 			</div>
 			<div className='closestDays'>
 				{date.getDate() - 1 ? (
-					<div>
+					<div style={{background: coloredTiles[date.getDate() - 1]}}>
 						<p>{date.getDate() - 1}</p>
 						<p>{weekday[date.getDay() - 1]}</p>
 					</div>
 				) : null}
-				<div>
+				<div style={{background: coloredTiles[date.getDate()]}}>
 					<p>{date.getDate()}</p>
 					<p>{weekday[date.getDay()]}</p>
 				</div>
 				{date.getDate() + 1 <= lastDay ? (
-					<div>
+					<div style={{background: coloredTiles[date.getDate() + 1]}}>
 						<p>{date.getDate() + 1}</p>
 						<p>{date.getDay() + 1>6? weekday[0] : weekday[date.getDay() + 1]}</p>
 					</div>
 				) : null}
 				{date.getDate() + 2 <= lastDay ? (
-					<div>
+					<div style={{background: coloredTiles[date.getDate() + 2]}}>
 						<p>{date.getDate() + 2}</p>
 						<p>{date.getDay() + 2>6? date.getDay() + 2>7?weekday[1]:weekday[0] : weekday[date.getDay() + 2]}</p>
 					</div>

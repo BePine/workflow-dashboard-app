@@ -1,0 +1,11 @@
+/* --FOOTER-- */
+.footer{
+    background-color:#13151a;
+    min-height:5em;
+    margin-top:10em;
+    color:white;
+    font-size:0.8em;
+    line-height:3em;
+    border-top:groove 1px rgb(204, 202, 202);
+  
+  }

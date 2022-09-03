@@ -2,7 +2,7 @@ import { doc, setDoc } from 'firebase/firestore';
 import { useContext, useEffect, useState } from 'react';
 import PageContext, { TaskType } from '../../../../Contexts/PageContext';
 import { db, getDocument, setDocument } from '../../../../lib/Firebase';
-
+import './homePage.css'
 const HomePage = () => {
 	const profileImageUrl = require('../../../../Assets/Images/icons8-test-account-50.png');
 	const { setPage, setData, allTasks, setAllTasks, latestTask, displayedName, setDisplayedName,setColoredTiles, coloredTiles } = useContext(PageContext);

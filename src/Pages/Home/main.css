@@ -1,0 +1,35 @@
+/* --MAIN-- */
+h2{
+    margin:auto;
+    margin-top:10%;
+    color:white;
+    font-weight:500;
+    padding:1%;
+    width:50%;
+    border-bottom:1px solid white;
+  
+  }
+  .content{
+    width:90%;
+    font-size:0.9em;
+    font-weight:400;
+    background:white;
+    padding:3%;
+    margin:auto;
+    margin-top:5%;
+    margin-bottom:10%;
+  }
+  @media (max-width:800px){
+    .content{
+      width:80%;
+  
+    }
+  }
+  .mainImage{
+    width:60%;
+    height:auto;
+    margin:auto;
+    margin-top:10vh;
+    margin-bottom:10vh;
+  }
+  

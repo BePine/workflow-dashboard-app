@@ -1,5 +1,5 @@
 import React, { ReactPropTypes, useContext, useEffect, useState } from 'react';
-import './Assets/App.css';
+import './App.css';
 import Main from './Pages/Home/Main';
 import { Route, Routes } from 'react-router-dom';
 import LoginPage from './Pages/LoginPage/LoginPage';

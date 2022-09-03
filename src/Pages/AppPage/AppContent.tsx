@@ -1,9 +1,9 @@
 import { PropsWithChildren } from "react"
-import BookPage from "./AppPages/BookPage";
+import BookPage from "./AppPages/BookPage/BookPage";
 import HomePage from "./AppPages/HomePage/HomePage";
 import NewTaskPage from "./AppPages/HomePage/NewTaskPage";
 import TaskPage from "./AppPages/HomePage/TaskPage";
-import SettingsPage from "./AppPages/SettingsPage";
+import SettingsPage from "./AppPages/SettingsPage/SettingsPage";
 interface Props{
     page: number;
 }

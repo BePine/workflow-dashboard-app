@@ -1,0 +1,49 @@
+*{
+  margin:0;
+  padding:0;
+}
+.App {
+  text-align: center;
+  font-size: calc(10px + 2vmin);
+}
+body{
+  background-color: #282c34;
+
+}
+
+/* --GLOBAL STYLES-- */
+
+form{
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  margin-top:2%;
+}
+p{
+  padding-top:5%;
+  color:white;
+}
+
+.hrefStyleOnly{
+  all: unset;
+  color: lightblue;
+  font-size:0.9em;
+  font-weight:300;
+  text-decoration: underline;
+}
+.hrefStyleOnly:hover{
+  transform:none;
+  color: #85a6b1;
+  cursor:pointer;
+}
+
+/* --ANIMATIONS-- */
+@keyframes fadeInUp {
+  100%{
+    opacity:1;
+    transform: translateY(0);
+
+  }
+}

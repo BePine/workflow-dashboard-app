@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useContext, useState } from "react";
-import PageContext from "../../../Contexts/PageContext";
-
+import PageContext from "../../../../Contexts/PageContext";
+import './settingsPage.css'
 const SettingsPage = () => {
 	const { setDisplayedName } = useContext(PageContext);
     const [inputValue, setInputValue] = useState('')
