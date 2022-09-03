@@ -4,11 +4,13 @@ import { auth } from '../../lib/Firebase';
 import { signInWithEmailAndPassword, setPersistence, browserSessionPersistence, getAuth, onAuthStateChanged } from 'firebase/auth';
 import { AuthContext } from '../../Contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import PageContext from '../../Contexts/PageContext';
 
 const SignIn = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [loginCheck, setLoginCheck] = useState<boolean | undefined>();
+	const {setLoading, loading} = useContext(PageContext)
 	const navigate = useNavigate();
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (e.target.type === 'email') {
@@ -25,6 +27,8 @@ const SignIn = () => {
 				// Signed in
 				const user = userCredential.user;
 				console.log(user);
+				
+
 				// ...
 			})
 			
@@ -41,7 +45,12 @@ const SignIn = () => {
 			// https://firebase.google.com/docs/reference/js/firebase.User
 			const uid = user.uid;
 			setLoginCheck(true);
-			navigate('../App');
+			setLoading(true)
+			setTimeout(() => {
+				navigate('../App');
+				setLoading(false)
+			}, 1000);
+
 
 			// ...
 		} else {

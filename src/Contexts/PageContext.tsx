@@ -27,9 +27,10 @@ const PageContext = createContext<any>({});
 export const PageProvider = ({ children }: PageContextProviderProps) => {
 	const [page, setPage] = useState(1);
 	const [data, setData] = useState<TaskType>({});
-	const [latestTask, setLatestTask] = useState<TaskType>({})
+	const [latestTask, setLatestTask] = useState<TaskType>()
 	const [displayedName, setDisplayedName] = useState('guest')
 	const [coloredTiles, setColoredTiles] = useState<CalendarType>({})
+	const [loading, setLoading] = useState<boolean>(false)
 	const [allTasks, setAllTasks] = useState<Array<TaskType>>([
 		{
 			key: 'cleaning',
@@ -54,7 +55,9 @@ export const PageProvider = ({ children }: PageContextProviderProps) => {
 				displayedName,
 				setDisplayedName,
 				coloredTiles,
-				setColoredTiles
+				setColoredTiles,
+				loading,
+				setLoading
 			}}
 		>
 			{children}

@@ -2,7 +2,7 @@ import { ifError } from 'assert';
 import { ChangeEvent, FormEvent, useContext, useState } from 'react';
 import PageContext, { TaskType } from '../../../../Contexts/PageContext';
 import { setDocument } from '../../../../lib/Firebase';
-
+import './newTaskPage.css'
 const NewTaskPage = () => {
 	const { page, setPage, setAllTasks, setLatestTask } = useContext(PageContext);
 	const [inputTitle, setInputTitle] = useState('');
@@ -44,20 +44,23 @@ const NewTaskPage = () => {
 			</div>
 			<form onSubmit={handleSubmitCreate}>
 				<input
-					type='text'
-					placeholder='task to add'
-					value={inputTask}
-					onChange={handleChangeTask}
-				/>
+						type='text'
+						placeholder='task to add'
+						value={inputTask}
+						onChange={handleChangeTask}
+						required
+					/>
 				<button type="submit">new task</button>
 			</form>
-			tasks:
-			{tasks?.map((task, index) => (
-				<div key={index}>
-					{task}
-					<div onClick={() => handleDeleteClick(task)}>x</div>
-				</div>
-			))}
+			<div className='toDoContainer'>
+				<h4>tasks:</h4>
+				{tasks?.map((task, index) => (
+					<div key={index} className="toDoItem">
+						<span>{task}</span>
+						<div onClick={() => handleDeleteClick(task)}>x</div>
+					</div>
+				))}
+			</div>
 			<form onSubmit={handleSubmit}>
 				<input
 					type='text'

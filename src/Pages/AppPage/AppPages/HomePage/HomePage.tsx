@@ -10,7 +10,6 @@ const HomePage = () => {
 
 	const handleClick = (object: TaskType) => {
 		setPage(12);
-		console.log(object)
 		setData(object);
 	};
 	const handleNewTaskClick = () => {
@@ -24,7 +23,6 @@ const HomePage = () => {
 			setDisplayedName("guest")
 		}
 		else{
-			console.log(value?.displayedName)
 			setDisplayedName(value?.displayedName)
 		}
 		if(value?.tiles!== undefined){
@@ -38,7 +36,6 @@ const HomePage = () => {
 		setDocument(allTasks, displayedName, coloredTiles)
 
 	}
-	console.log(allTasks);
 	return (
 		<>
 			<div className='appContent'>
@@ -72,9 +69,9 @@ const HomePage = () => {
 					</div>
 				</div>
 				<h3>Latest Project</h3>
-				<div onClick={() =>handleClick(latestTask)}>{latestTask?.title}</div>
-			    <button onClick={handleSave}>save data</button>
-			    <button onClick={handleLoad}>load data</button>
+				{latestTask===undefined? <div className='latestTask--unactive'>no latest projects</div> : <div className="latestTask" onClick={() =>handleClick(latestTask)}><div></div>{latestTask?.title}</div>}
+			    <button className="tempButton" onClick={handleSave}>save data</button><br></br>
+			    <button className="tempButton" onClick={handleLoad}>load data</button>
 
 			</div>
 

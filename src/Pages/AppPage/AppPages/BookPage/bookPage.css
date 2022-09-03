@@ -1,4 +1,36 @@
   /* --CALENDAR-- */
+  .bookPage{
+    position:relative;
+    margin-left:20px;
+    margin-right:20px;
+    padding-top:15vh;
+    padding-bottom:20vh;
+  }
+  .imgBook{
+    position:absolute;
+    right:3vw;
+    top:5vh;
+  }
+  .upperDate{
+    position:absolute;
+    top:5vh;
+    left:5vw;
+    font-size:1.5em;
+    background:lightcoral;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.2);
+    padding:10px;
+    border-radius:15px;
+  }
+  h4{
+    margin-top:20px;
+    font-weight:450;
+  }
+  h3{
+    font-weight:450;
+    
+  }
   .closestDays{
     display:flex;
     flex-direction: row;
@@ -10,7 +42,7 @@
   }
   .closestDays div{
     height:5rem;
-    border:1px solid gray;
+    border:1px solid #fa5c5c;
     border-radius:10px;
     flex:2;
     margin:10px;
@@ -38,7 +70,6 @@
     justify-self: center; 
     box-sizing: border-box;
     padding:1px;
-    
   }
   .calendar div .calendarTile{
     border-right:1px solid;
@@ -52,8 +83,7 @@
     transition:0.4s;
   }
   .calendar div .hiddenMenu{
-    
-    position:absolute;
+    position:fixed;
     background:#ff6363;
     border:1px solid black;
     z-index:9;
@@ -61,8 +91,8 @@
     border-radius:10px;
     left:20%;
     right:20%;
-    min-height:40%;
-    top:80%;
+    min-height:50vh;
+    top:20vh;;
   
   }
   .calendar div .hiddenMenu .close{
@@ -75,5 +105,25 @@
   }
   .calendar div .hiddenMenu .close:hover{
     color:#000000;
+    cursor:pointer;
   }
-  
+  .calendar div .hiddenMenu .click{
+    margin-top:20px;
+    margin-bottom:30px;
+    background:lightcoral;
+    font-size:1.3em;
+    min-width:35%;
+    border:none;
+    transition:0.2s;
+    color:white;
+    font-weight:300;
+    padding:10px;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.2);
+  }
+  .calendar div .hiddenMenu .click:hover{
+    background:#fc8e8e;
+    cursor: pointer;
+    min-width:55%;
+  }

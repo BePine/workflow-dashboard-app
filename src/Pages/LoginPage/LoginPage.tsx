@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import './loginPage.css'
+import PageContext from '../../Contexts/PageContext';
 const LoginPage = () => {
 	const [choice, setChoice] = useState<number>(2);
+	const {loading} = useContext(PageContext)
 	const handleClickLogin = () => {
 		setChoice(1);
 	};
@@ -13,7 +15,8 @@ const LoginPage = () => {
 		setChoice(2);
 	};
 	return (
-		<>
+		<>	
+			{loading? <div className='bg'><div className='loader'></div></div> : null}
 			<Header />
 			<div className='authContainer' role="main">
 				{choice === 2 ? (

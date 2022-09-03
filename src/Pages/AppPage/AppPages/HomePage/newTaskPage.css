@@ -1,0 +1,91 @@
+.goBack{
+    background:lightcoral;
+    width:50%;
+    height:5vh;
+    line-height:5vh;
+    margin:5px;
+    color:white;
+    transition:0.2s;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.2);
+}
+.goBack:hover{
+    cursor: pointer;
+    background:#ff6363;
+    width:40%;
+}
+input{
+    margin-top:20px;
+    border:1px solid #b6b6b6;
+    width:80%;
+    padding:10px;
+    font-size:1.3em;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.2);
+}
+form button{
+    margin-top:20px;
+    margin-bottom:30px;
+    background:lightcoral;
+    font-size:1.3em;
+    min-width:35%;
+    border:none;
+    transition:0.2s;
+    color:white;
+    font-weight:300;
+    padding:10px;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.2);
+}
+form button:hover{
+    background:#ff6363;
+    cursor: pointer;
+    min-width:55%;
+}
+.toDoContainer{
+    min-height:20vh;
+    width:90%;
+    margin:auto;
+    background: #efefef;
+    margin-bottom:20px;
+    padding-bottom:30px;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.3);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.3);
+    box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.3);
+}
+.toDoContainer h4{
+    font-weight:400;
+    font-size:1.1em;
+    border-bottom:1px solid black;
+    margin:30px;
+}
+.toDoContainer .toDoItem{
+    width:90%;
+    min-height:10vh;
+    margin:auto;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.3);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.3);
+    box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.3);
+    margin-bottom:10px;
+}
+.toDoContainer .toDoItem span{
+    width:70%;
+    height:10vh;
+    line-height:10vh;
+    float:left;
+}
+.toDoContainer .toDoItem div{
+    width:20%;
+    height:10vh;
+    line-height:10vh;
+    color:red;
+    float:right;
+    font-weight:600;
+    font-size:1.5em;
+}
+.toDoContainer .toDoItem div:hover{
+    cursor:pointer;
+}

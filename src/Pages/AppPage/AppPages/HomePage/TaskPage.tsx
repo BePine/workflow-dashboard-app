@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react"
 import PageContext, { FavTask, TaskType } from "../../../../Contexts/PageContext"
-
+import './taskPage.css'
 const TaskPage = () => {
 	const {setPage, data, allTasks, setAllTasks} = useContext(PageContext)
     const handleBackClick = () => {
@@ -12,13 +12,13 @@ const TaskPage = () => {
     }
     return(
         <>
-            <div className='appContent'>
+            <div className='taskContent'>
 					<div className='goBack' onClick={handleBackClick}>
 						back
 					</div>
-                    <div onClick={handleDeleteClick}>delete</div>
-					<div>{data?.title}</div>
-                    <div>{data.tasks?.map((task:string[], index:number)=><div key={index}>{task}</div>)}</div>
+                    <div className="deleteGroup" onClick={handleDeleteClick}>delete</div>
+					<div className="taskTitle">{data?.title}</div> 
+                    <div className="tasks"><span>tasks:</span>{data.tasks?.map((task:string[], index:number)=><div className="task" key={index}>{task}</div>)}</div>
 				</div>
         </>
     )
