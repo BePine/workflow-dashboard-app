@@ -410,6 +410,34 @@ h2{
   cursor:pointer;
 }
 /* --CALENDAR-- */
+.closestDays{
+  display:flex;
+  flex-direction: row;
+  width:70%;
+  align-items: center;
+  height:10rem;
+  justify-content: center;
+  margin:auto;
+}
+.closestDays div{
+  height:5rem;
+  border:1px solid gray;
+  border-radius:10px;
+  flex:2;
+  margin:10px;
+  transition:0.2s;
+  display:flex;
+  flex-direction: column;  
+}
+.closestDays div:hover{
+  height:7rem;
+  margin-top:2.6rem;
+  cursor:pointer;
+}
+.closestDays div p {
+  all:unset;
+  border:none;
+}
 .calendar{
   width:80%;
   min-height:10rem;

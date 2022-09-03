@@ -1,7 +1,23 @@
+import { ChangeEvent, FormEvent, useContext, useState } from "react";
+import PageContext from "../../../Contexts/PageContext";
+
 const SettingsPage = () => {
+	const { setDisplayedName } = useContext(PageContext);
+    const [inputValue, setInputValue] = useState('')
+    const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
+        setInputValue(e.target.value)
+    }
+    const handleSubmit = (e:FormEvent) => {
+        e.preventDefault()
+        setDisplayedName(inputValue)
+        setInputValue('')
+    }
     return(
         <>
-            settings
+            <form onSubmit={handleSubmit}>
+                <input type="text" placeholder="displayed name" value={inputValue} onChange={handleChange}/>
+                <button type="submit">submit</button>
+            </form>
         </>
     )
 }
