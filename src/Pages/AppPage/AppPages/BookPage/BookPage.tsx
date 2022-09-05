@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from 'react';
 import './bookPage.css'
-import PageContext from '../../../../Contexts/PageContext';
+import PageContext, { CalendarStringType } from '../../../../Contexts/PageContext';
 const BookPage = () => {
 	const monthNames = [
 		'January',
@@ -32,7 +32,7 @@ const BookPage = () => {
 	const monthName = monthNames[month];
 	const lastDayDate = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 	const lastDay = lastDayDate.getDate();
-	const { coloredTiles } = useContext(PageContext);
+	const { coloredTiles, titleForTiles } = useContext(PageContext);
 	const [loopCheck, setLoopCheck] = useState(0);
 	const [calendar, setCalendar] = useState<number[]>([]);
 	const [hiddenMenu, setHiddenMenu] = useState(0);
@@ -69,6 +69,7 @@ const BookPage = () => {
 	const handleSet = (e: FormEvent) => {
 		e.preventDefault();
 		coloredTiles[tileHandle] = 'lightcoral';
+		titleForTiles[tileHandle]= inputValue
 		setHiddenMenu(0);
 		setInputValue('');
 		setTileHandle(0)
@@ -76,6 +77,7 @@ const BookPage = () => {
 	};
 	const handleResetClick = () => {
 		coloredTiles[tileHandle] = 'white';
+		titleForTiles[tileHandle]= ''
 		setHiddenMenu(0);
 		setInputValue('');
 	};
@@ -91,7 +93,7 @@ const BookPage = () => {
 					{date.getDate() - 1 ? (
 						<div style={{background: coloredTiles[date.getDate() - 1]}}>
 							<p>{date.getDate() - 1}</p>
-							<p>{date.getDay() - 1<0?weekday[6]: date.getDay() - 1}</p>
+							<p>{date.getDay() - 1<0?weekday[6]: weekday[date.getDay() - 1]}</p>
 						</div>
 					) : null}
 					<div style={{background: coloredTiles[date.getDate()]}}>
@@ -126,7 +128,9 @@ const BookPage = () => {
 								}}
 							>
 								{tile}
+								{titleForTiles[tile]!=='' && titleForTiles[tile]!== undefined? <div className="commentBox">{titleForTiles[tile]}</div> : null}
 							</div>
+							
 							<div
 								className='hiddenMenu'
 								style={

@@ -15,13 +15,14 @@ export interface FavTask{
 	title: string,
 	value: boolean
 }
-export interface CalendarType{
+export interface CalendarStringType{
 	1?: string, 2?: string, 3? : string, 4? : string, 5?: string, 6?: string, 7?: string, 8?: string,
 	9?: string,10?: string,11?: string,12?: string,13?: string,14?: string,15?: string,16?: string,17?: string,
 	18?: string,19?: string,20?: string,21?: string,22?: string,23?: string,24?: string,25?: string,26?: string,
 	27?: string,28?: string,29?: string,30?: string,31?: string,
 	
 }
+
 const PageContext = createContext<any>({});
 
 export const PageProvider = ({ children }: PageContextProviderProps) => {
@@ -29,7 +30,8 @@ export const PageProvider = ({ children }: PageContextProviderProps) => {
 	const [data, setData] = useState<TaskType>({});
 	const [latestTask, setLatestTask] = useState<TaskType>()
 	const [displayedName, setDisplayedName] = useState('guest')
-	const [coloredTiles, setColoredTiles] = useState<CalendarType>({})
+	const [coloredTiles, setColoredTiles] = useState<CalendarStringType>({})
+	const [titleForTiles, setTitleForTiles] = useState<CalendarStringType>({})
 	const [loading, setLoading] = useState<boolean>(false)
 	const [allTasks, setAllTasks] = useState<Array<TaskType>>([
 		{
@@ -57,7 +59,10 @@ export const PageProvider = ({ children }: PageContextProviderProps) => {
 				coloredTiles,
 				setColoredTiles,
 				loading,
-				setLoading
+				setLoading,
+				titleForTiles,
+				setTitleForTiles,
+
 			}}
 		>
 			{children}
