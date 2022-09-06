@@ -57,6 +57,7 @@
     transition:0.2s;
     display:flex;
     flex-direction: column;  
+    position:relative;
   }
   .closestDays div:hover{
     height:7rem;
@@ -66,6 +67,14 @@
   .closestDays div p {
     all:unset;
     border:none;
+  }
+  .closestDays div .commentBox{
+    min-width:100%;
+    bottom:0;
+    
+  }
+  .closestDays div .commentBox:hover{
+    bottom:0;
   }
   .calendar{
     width:80%;
@@ -99,15 +108,16 @@
     background:#ff6363;
     transition:0.4s;
   }
-  .calendar div .calendarTile .commentBox{
+  .calendar div .calendarTile .commentBox, .closestDays div .commentBox{
     display:none;
     position:absolute;
     width:10%;
     background:white;
     border:1px solid black;
     margin-left:5%;
+    height:5vh;
   }
-  .calendar div .calendarTile:hover .commentBox{
+  .calendar div .calendarTile:hover .commentBox, .closestDays div:hover .commentBox{
     display:block;
   }
   .calendar div .hiddenMenu{

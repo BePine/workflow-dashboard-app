@@ -94,22 +94,28 @@ const BookPage = () => {
 						<div style={{background: coloredTiles[date.getDate() - 1]}}>
 							<p>{date.getDate() - 1}</p>
 							<p>{date.getDay() - 1<0?weekday[6]: weekday[date.getDay() - 1]}</p>
+							{titleForTiles[date.getDate()-1]!=='' && titleForTiles[date.getDate()-1]!== undefined? <div className="commentBox">{titleForTiles[date.getDate()-1]}</div> : null}
 						</div>
+						
 					) : null}
 					<div style={{background: coloredTiles[date.getDate()]}}>
 						<p>{date.getDate()}</p>
 						<p>{weekday[date.getDay()]}</p>
+						{titleForTiles[date.getDate()]!=='' && titleForTiles[date.getDate()]!== undefined? <div className="commentBox">{titleForTiles[date.getDate()]}</div> : null}
 					</div>
 					{date.getDate() + 1 <= lastDay ? (
 						<div style={{background: coloredTiles[date.getDate() + 1]}}>
 							<p>{date.getDate() + 1}</p>
 							<p>{date.getDay() + 1>6? weekday[0] : weekday[date.getDay() + 1]}</p>
+						{titleForTiles[date.getDate()+1]!=='' && titleForTiles[date.getDate()+1]!== undefined? <div className="commentBox">{titleForTiles[date.getDate()+1]}</div> : null}
 						</div>
 					) : null}
 					{date.getDate() + 2 <= lastDay ? (
 						<div style={{background: coloredTiles[date.getDate() + 2]}}>
 							<p>{date.getDate() + 2}</p>
 							<p>{date.getDay() + 2>6? date.getDay() + 2>7?weekday[1]:weekday[0] : weekday[date.getDay() + 2]}</p>
+							{titleForTiles[date.getDate()+2]!=='' && titleForTiles[date.getDate()+2]!== undefined? <div className="commentBox">{titleForTiles[date.getDate()+2]}</div> : null}
+						
 						</div>
 					) : null}
 				</div>
