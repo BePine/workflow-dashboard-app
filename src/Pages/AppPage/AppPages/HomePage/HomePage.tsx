@@ -5,7 +5,7 @@ import { db, getDocument, setDocument } from '../../../../lib/Firebase';
 import './homePage.css'
 const HomePage = () => {
 	const profileImageUrl = require('../../../../Assets/Images/icons8-test-account-50.png');
-	const { setPage, setData, allTasks, setAllTasks, latestTask, displayedName, setDisplayedName,setColoredTiles, coloredTiles } = useContext(PageContext);
+	const { lineThroughStyle, setLineThroughStyle, setPage, setData, allTasks, setAllTasks, latestTask, displayedName, setDisplayedName,setColoredTiles, coloredTiles } = useContext(PageContext);
 	
 
 	const handleClick = (object: TaskType) => {
@@ -31,9 +31,15 @@ const HomePage = () => {
 		else{
 			console.log('tiles not set yet')
 		}
+		if(value?.lineThrough!==undefined){
+			setLineThroughStyle(value?.lineThrough)
+		}
+		else{
+			console.log('no styles saved')
+		}
 	}
 	const handleSave = async () =>{
-		setDocument(allTasks, displayedName, coloredTiles)
+		setDocument(allTasks, displayedName, coloredTiles, lineThroughStyle)
 
 	}
 	return (

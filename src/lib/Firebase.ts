@@ -26,13 +26,15 @@ const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
 
-export const setDocument = (allTasks:any, name:string, coloredTiles:any) => {
+export const setDocument = (allTasks:any, name:string, coloredTiles:any, line:any) => {
   const uid:any = auth.currentUser?.uid
   const userRef = doc(db, 'users', uid)
   setDoc(userRef,{
     data: allTasks,
     displayedName: name,
-    tiles: coloredTiles
+    tiles: coloredTiles,
+    lineThrough: line,
+    
   }, { merge: true } )
     
 }

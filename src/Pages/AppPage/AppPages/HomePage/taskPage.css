@@ -1,5 +1,6 @@
 .taskContent{
 position:relative;
+padding-bottom:60px;
 }
 .taskContent .goBack{
     width:45%;
@@ -64,4 +65,25 @@ border-bottom:1px solid black;
     -moz-box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.3);
     box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.3);
     margin-bottom:10px;
+}
+.taskContent .tasks .task:hover{
+    cursor: pointer;
+    background:#d1c8ff
+}
+.taskContent .progressBar--empty{
+    background:grey;
+    width:25%;
+    height:0.7em;
+    border-radius:20px;
+    margin:auto;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.4);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.4);
+    box-shadow: 4px 4px 8px 0px rgba(66, 68, 90, 0.4);
+}
+.taskContent .progressBar--empty .progressBar--fill{
+    background:#ff6363;
+    border-radius:20px;
+    width:0%;
+    transition:0.5s;
+    height:100%;
 }

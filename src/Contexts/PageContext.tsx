@@ -33,12 +33,14 @@ export const PageProvider = ({ children }: PageContextProviderProps) => {
 	const [coloredTiles, setColoredTiles] = useState<CalendarStringType>({})
 	const [titleForTiles, setTitleForTiles] = useState<CalendarStringType>({})
 	const [loading, setLoading] = useState<boolean>(false)
+    const [taskClicked, setTaskClicked] = useState<any>({})
+    const [lineThroughStyle, setLineThroughStyle] = useState<any>({})
 	const [allTasks, setAllTasks] = useState<Array<TaskType>>([
 		{
 			key: 'cleaning',
 			progress: 0,
 			title: 'cleaning',
-			tasks: ['clean windows', 'fuck'],
+			tasks: ['clean windows', 'crap'],
 			deadLine: '21/7/2023',
 			finished: false,
 		}
@@ -62,6 +64,10 @@ export const PageProvider = ({ children }: PageContextProviderProps) => {
 				setLoading,
 				titleForTiles,
 				setTitleForTiles,
+				taskClicked,
+				setTaskClicked,
+				lineThroughStyle, 
+				setLineThroughStyle
 
 			}}
 		>
