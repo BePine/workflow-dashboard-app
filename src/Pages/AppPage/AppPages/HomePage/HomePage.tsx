@@ -52,7 +52,7 @@ const HomePage = () => {
 		}
 	};
 	const handleSave = async () => {
-		setDocument(allTasks, displayedName, coloredTiles, lineThroughStyle, taskClicked);
+		await setDocument(allTasks, displayedName, coloredTiles, lineThroughStyle, taskClicked);
 	};
 	return (
 		<>

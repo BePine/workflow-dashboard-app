@@ -21,7 +21,8 @@
     box-shadow: 8px 8px 10px -1px rgba(0, 0, 0, 0.5);
     
   }
-  .loginContainer button:nth-child(3){   
+  .loginContainer button:nth-child(3){
+    all:unset;   
     background: #61dafb;
     width:20%;
     height:3em;
@@ -38,7 +39,9 @@
   
   }
   .loginContainer button:nth-child(3):hover{
-    transform:scale(110%);
+    background:#42c5e9;
+    width:25%;
+    color:White;
     cursor:pointer;
   }
   

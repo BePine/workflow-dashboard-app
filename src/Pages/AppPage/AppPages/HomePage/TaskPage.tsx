@@ -29,15 +29,15 @@ const TaskPage = () => {
 		const temp = allTasks.filter((task: TaskType) => task.title !== data.title);
 		data.progress = data.progress + 1;
 		setAllTasks([...temp, data]);
-		taskClicked[taskIndex] = true;
-		lineThroughStyle[taskIndex] = 'line-through';
+		taskClicked[data.title[taskIndex]]=true;
+		lineThroughStyle[data.title[taskIndex]] = 'line-through';
 	};
 	const handleTaskClickSecond = async (e: any, taskIndex: any) => {
 		const temp = allTasks.filter((task: TaskType) => task.title !== data.title);
 		data.progress = data.progress - 1;
 		setAllTasks([...temp, data]);
-		taskClicked[taskIndex] = false;
-		lineThroughStyle[taskIndex] = '';
+		taskClicked[data.title[taskIndex]] = false;
+		lineThroughStyle[data.title[taskIndex]] = '';
 	};
 	return (
 		<>
@@ -53,9 +53,9 @@ const TaskPage = () => {
 					<span>tasks:</span>
 					{data.tasks?.map((task: string[], index: number) => (
 						<div
-							style={{ textDecoration: lineThroughStyle[index] }}
+							style={{ textDecoration: lineThroughStyle[data.title[index]] }}
 							onClick={
-								taskClicked[index]
+								taskClicked[data.title[index]]
 									? (e) => handleTaskClickSecond(e, index)
 									: (e) => handleTaskClickFirst(e, index)
 							}

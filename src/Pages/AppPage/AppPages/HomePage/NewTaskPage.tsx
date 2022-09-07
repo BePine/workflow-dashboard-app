@@ -14,7 +14,7 @@ const NewTaskPage = () => {
 	};
 	const handleChangeTitle = (e: ChangeEvent<HTMLInputElement>) => {
 		setInputTitle(e.target.value);
-		setSendData({ title: e.target.value, key: e.target.value, tasks: tasks, progress:0 });
+		setSendData({ title: e.target.value, key: e.target.value, tasks: tasks, progress:0, finished: false, deadLine: 'none' });
 	};
 	const handleChangeTask = (e: ChangeEvent<HTMLInputElement>) => {
 		setInputTask(e.target.value);
