@@ -10,6 +10,16 @@
     margin-top:2em;
   
   }
+  .App-header ul .triangle{
+    background-color: #61dafb;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    width: 100px;
+    height: 100px;
+  }
+  .App-header ul .triangle:hover{
+    background: #4ab5d3;
+    cursor:pointer;
+  }
   .App-header ul li{
     margin-left:8%;
     flex:5;

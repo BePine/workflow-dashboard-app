@@ -5,11 +5,14 @@
     width:80%;
     min-height:100vh;
     margin:auto;
+    position:relative;
   }
   .appContent h1{
     float:left; 
+    text-align:left;
     min-width:50%;
     padding-top:2%;
+
   }
   .appContent h5{
     font-weight:400;
@@ -27,9 +30,9 @@
   
   }
   .appContent img{
-    float:right;
-    margin-right:5%;
-    margin-top:4%;
+    position:absolute;
+    right:3vw;
+    top:5vh;
   }
   
   .appContent .tempButton{

@@ -1,16 +1,15 @@
   /* --CALENDAR-- */
   .bookPage{
     position:relative;
-    margin-left:20px;
-    margin-right:20px;
+    margin-left:6%;
+    margin-right:7%;
     padding-top:15vh;
     padding-bottom:20vh;
   }
   @media (max-width:800px) {
     .bookPage{
-      margin:3px;
-      padding-top:15vh;
-      padding-bottom:20vh;
+      margin-left:6%;
+      margin-right:7%;
 
     }
   }
@@ -111,11 +110,15 @@
   .calendar div .calendarTile .commentBox, .closestDays div .commentBox{
     display:none;
     position:absolute;
-    width:10%;
-    background:white;
-    border:1px solid black;
+    min-width:15%;
+    background:#fd4444;
+    border:1px solid white;
+    color:white;
     margin-left:5%;
     height:5vh;
+    border-radius:10px;
+    font-weight:350;
+    padding:2px;
   }
   .calendar div .calendarTile:hover .commentBox, .closestDays div:hover .commentBox{
     display:block;

@@ -15,6 +15,7 @@ const SettingsPage = () => {
     return(
         <>
             <form onSubmit={handleSubmit}>
+                <h3>Your name or nickname:</h3>
                 <input type="text" placeholder="displayed name" value={inputValue} onChange={handleChange}/>
                 <button type="submit">submit</button>
             </form>

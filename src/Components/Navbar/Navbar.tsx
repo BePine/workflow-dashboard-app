@@ -7,7 +7,16 @@ import './navbar.css'
 const Navbar = () => {
 	const [headerChange, setHeaderChange] = useState<boolean>(false);
 	const [profileShow, setProfileShow] = useState<boolean>(false);
-
+	const [triangleShow, setTriangleShow] = useState<boolean>(false)
+	const linkArr = [
+		{ label: 'Home', link: '/' },
+		{ label: 'App', link: '/app' },
+		{
+			label: headerChange ? 'Logout' : 'Login',
+			link: headerChange ? '/' : '/authentication',
+		},
+		
+	];
 	onAuthStateChanged(auth, (user) => {
 		if (user) {
 			// User is signed in, see docs for a list of available properties
@@ -31,15 +40,18 @@ const Navbar = () => {
 				// An error happened.
 			});
 	};
-	const linkArr = [
-		{ label: 'Home', link: '/' },
-		{ label: 'App', link: '/app' },
-		{
-			label: headerChange ? 'Logout' : 'Login',
-			link: headerChange ? '/' : '/authentication',
-		},
-		
-	];
+	
+	const handleTriangleClick = () => {
+		if(triangleShow){
+			// e.currentTarget.style.transform = 'rotate(0deg)'
+			setTriangleShow(false)
+		}
+		else{
+			// console.log('wywloalles')
+			// // e.currentTarget.style.transform = 'rotate(90deg)'
+			setTriangleShow(true)
+		}
+	}
 	return (
 		<>
 			<ul role='list'>
@@ -48,6 +60,9 @@ const Navbar = () => {
 						<li key='label'>
 							<button onClick={handleClick}>{label}</button>
 						</li>
+							// <div className='triangle' onClick={handleTriangleClick}></div>
+							/* {triangleShow? <button onClick={handleClick}>{label}</button> :null} */
+						
 					) : (
 						<li key={label}>
 							<Link to={link}>{label}</Link>
