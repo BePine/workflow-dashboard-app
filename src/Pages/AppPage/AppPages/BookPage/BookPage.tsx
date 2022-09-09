@@ -83,7 +83,7 @@ const BookPage = () => {
 	};
 	return (
 		<>
-			<div className="bookPage">
+			<div className="bookPage" data-testid='bookPageTest'>
 				<img className="imgBook" src={profileImageUrl} alt='' />
 				<div className="upperDate">
 					{monthName} {day}

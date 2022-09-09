@@ -41,7 +41,7 @@ const TaskPage = () => {
 	};
 	return (
 		<>
-			<div className='taskContent'>
+			<div className='taskContent' data-testid='taskPageTest'>
 				<div className='goBack' onClick={handleBackClick}>
 					back
 				</div>

@@ -20,7 +20,7 @@ const AppNavbar = () => {
 	};
 	return (
 		<>
-			<div className='appNav'>
+			<div className='appNav' data-testid='appNavbarTest'>
 				<button
 					onClick={handleClickHome}
 					style={activeLink === 'home' ? activeLinkStyles : nonActiveLinkStyles}

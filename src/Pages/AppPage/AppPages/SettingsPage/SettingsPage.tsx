@@ -14,7 +14,7 @@ const SettingsPage = () => {
     }
     return(
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} data-testid="settingsPageTest">
                 <h3>Your name or nickname:</h3>
                 <input type="text" placeholder="displayed name" value={inputValue} onChange={handleChange}/>
                 <button type="submit">submit</button>

@@ -12,7 +12,7 @@ const AppPage = () => {
 	return (
 		<>
 			<Header />
-				<div className='appContainer'>
+				<div className='appContainer' data-testid='appPageTest'>
 					<AppNavbar/>
 				</div>
 			<Footer />

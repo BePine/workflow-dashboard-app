@@ -11,14 +11,14 @@ interface Props{
 const AppContent = (props:PropsWithChildren<Props>) => {
 
     return(
-        <>
-            {props.page===1?<HomePage/> : null}
+        <div data-testid='appContentTest'>
+            {props.page===1?<HomePage /> : null}
             {props.page===2?<BookPage/> : null}
             {props.page===3?<SettingsPage/> : null}
             {props.page===11? <NewTaskPage/> : null}
             {props.page===12? <TaskPage/> : null}
 
-        </>
+        </div>
     )
 }
 export default AppContent

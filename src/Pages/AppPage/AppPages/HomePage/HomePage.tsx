@@ -56,7 +56,7 @@ const HomePage = () => {
 	};
 	return (
 		<>
-			<div className='appContent'>
+			<div className='appContent' data-testid = "homePageTest">
 				<h1>Hi, {displayedName}</h1>
 				<img src={profileImageUrl} alt='' />
 				<h5>Have a good day!</h5>
