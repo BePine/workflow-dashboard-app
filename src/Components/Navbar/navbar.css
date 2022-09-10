@@ -26,6 +26,9 @@
     height:3em;
   
   }
+  .App-header ul .triangle button{
+    background:red;
+  }
   .App-header ul li:nth-child(3){
     margin-left:10%;
     flex:3;
