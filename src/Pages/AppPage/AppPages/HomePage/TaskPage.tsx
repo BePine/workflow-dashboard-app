@@ -13,7 +13,7 @@ const TaskPage = () => {
 		allTasks,
 		setAllTasks,
 		taskClicked,
-		lineThroughStyle,
+		// lineThroughStyle,
 	} = useContext(PageContext);
 	useEffect(() => {
 		console.log(allTasks);
@@ -29,15 +29,18 @@ const TaskPage = () => {
 		const temp = allTasks.filter((task: TaskType) => task.title !== data.title);
 		data.progress = data.progress + 1;
 		setAllTasks([...temp, data]);
-		taskClicked[data.title[taskIndex]]=true;
-		lineThroughStyle[data.title[taskIndex]] = 'line-through';
+		taskClicked[data.title[taskIndex]]={styled: 'line-through', clicked:true};
+		// lineThroughStyle[data.title[taskIndex]] = {styled: 'line-through', clicked:};
+		console.log(data)
+		console.log(taskIndex)
 	};
 	const handleTaskClickSecond = async (e: any, taskIndex: any) => {
 		const temp = allTasks.filter((task: TaskType) => task.title !== data.title);
 		data.progress = data.progress - 1;
 		setAllTasks([...temp, data]);
-		taskClicked[data.title[taskIndex]] = false;
-		lineThroughStyle[data.title[taskIndex]] = '';
+		taskClicked[data.title[taskIndex]]={styled: '', clicked:false};
+		console.log(data)
+		console.log(taskIndex)
 	};
 	return (
 		<>
@@ -53,7 +56,7 @@ const TaskPage = () => {
 					<span>tasks:</span>
 					{data.tasks?.map((task: string[], index: number) => (
 						<div
-							style={{ textDecoration: lineThroughStyle[data.title[index]] }}
+							style={{ textDecoration: taskClicked[data.title[index]] }}
 							onClick={
 								taskClicked[data.title[index]]
 									? (e) => handleTaskClickSecond(e, index)

@@ -15,6 +15,7 @@ const HomePage = () => {
 		allTasks,
 		setAllTasks,
 		latestTask,
+		setLatestTask,
 		displayedName,
 		setDisplayedName,
 		setColoredTiles,
@@ -50,9 +51,13 @@ const HomePage = () => {
 			setTaskClicked(value?.tasksClicked);
 		} else {
 		}
+		if (value?.latestTask !== undefined) {
+			setLatestTask(value?.latestTask);
+		} else {
+		}
 	};
 	const handleSave = async () => {
-		await setDocument(allTasks, displayedName, coloredTiles, lineThroughStyle, taskClicked);
+		await setDocument(allTasks, displayedName, coloredTiles, lineThroughStyle, taskClicked, latestTask);
 	};
 	return (
 		<>

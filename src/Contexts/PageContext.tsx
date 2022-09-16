@@ -3,6 +3,10 @@ import React, { createContext, useState } from 'react';
 type PageContextProviderProps = {
 	children: React.ReactNode;
 };
+export interface ArrOfTasksType {
+	name?: string,
+	clicked?: boolean
+}
 export interface TaskType {
 	key?: number | string;
 	progress?: number;
@@ -34,13 +38,13 @@ export const PageProvider = ({ children }: PageContextProviderProps) => {
 	const [titleForTiles, setTitleForTiles] = useState<CalendarStringType>({})
 	const [loading, setLoading] = useState<boolean>(false)
     const [taskClicked, setTaskClicked] = useState<any>({})
-    const [lineThroughStyle, setLineThroughStyle] = useState<any>({})
+    // const [lineThroughStyle, setLineThroughStyle] = useState<any>({})
 	const [allTasks, setAllTasks] = useState<Array<TaskType>>([
 		{
 			key: 'cleaning',
 			progress: 0,
 			title: 'cleaning',
-			tasks: ['clean windows', 'crap'],
+			tasks: ['clean windows', 'crap',],
 			deadLine: '21/7/2023',
 			finished: false,
 		}
@@ -66,8 +70,8 @@ export const PageProvider = ({ children }: PageContextProviderProps) => {
 				setTitleForTiles,
 				taskClicked,
 				setTaskClicked,
-				lineThroughStyle, 
-				setLineThroughStyle
+				// lineThroughStyle, 
+				// setLineThroughStyle
 
 			}}
 		>

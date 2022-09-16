@@ -29,7 +29,8 @@ export const setDocument = (
 	name: string,
 	coloredTiles: string,
 	line: any,
-  	clickedTasks: any
+  	clickedTasks: any,
+	latestTask:any
 ) => {
 	const uid: any = auth.currentUser?.uid;
 	const userRef = doc(db, 'users', uid);
@@ -41,7 +42,7 @@ export const setDocument = (
 			tiles: coloredTiles,
 			lineThrough: line,
       		tasksClicked: clickedTasks,
-      
+			latestTask: latestTask,
 		},
 		{ merge: true }
 	);
