@@ -38,7 +38,7 @@ export const PageProvider = ({ children }: PageContextProviderProps) => {
 	const [titleForTiles, setTitleForTiles] = useState<CalendarStringType>({})
 	const [loading, setLoading] = useState<boolean>(false)
     const [taskClicked, setTaskClicked] = useState<any>({})
-    // const [lineThroughStyle, setLineThroughStyle] = useState<any>({})
+    const [lineThroughStyle, setLineThroughStyle] = useState<any>({})
 	const [allTasks, setAllTasks] = useState<Array<TaskType>>([
 		{
 			key: 'cleaning',
@@ -70,8 +70,8 @@ export const PageProvider = ({ children }: PageContextProviderProps) => {
 				setTitleForTiles,
 				taskClicked,
 				setTaskClicked,
-				// lineThroughStyle, 
-				// setLineThroughStyle
+				lineThroughStyle, 
+				setLineThroughStyle
 
 			}}
 		>

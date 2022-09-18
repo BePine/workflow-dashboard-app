@@ -13,11 +13,13 @@ const TaskPage = () => {
 		allTasks,
 		setAllTasks,
 		taskClicked,
-		// lineThroughStyle,
+		lineThroughStyle,
 	} = useContext(PageContext);
+	const newTemp:any = taskClicked[data.title]
 	useEffect(() => {
 		console.log(allTasks);
 	}, [allTasks]);
+	
 	const handleBackClick = () => {
 		setPage(1);
 	};
@@ -29,19 +31,24 @@ const TaskPage = () => {
 		const temp = allTasks.filter((task: TaskType) => task.title !== data.title);
 		data.progress = data.progress + 1;
 		setAllTasks([...temp, data]);
-		taskClicked[data.title[taskIndex]]={styled: 'line-through', clicked:true};
-		// lineThroughStyle[data.title[taskIndex]] = {styled: 'line-through', clicked:};
-		console.log(data)
-		console.log(taskIndex)
+		taskClicked[data.title]={[taskIndex]: true};
+		lineThroughStyle[data.title] = {[taskIndex]: 'line-through'};
+		// console.log(taskClicked)
+		
+		
+		// console.log(taskIndex)
 	};
 	const handleTaskClickSecond = async (e: any, taskIndex: any) => {
 		const temp = allTasks.filter((task: TaskType) => task.title !== data.title);
 		data.progress = data.progress - 1;
 		setAllTasks([...temp, data]);
-		taskClicked[data.title[taskIndex]]={styled: '', clicked:false};
-		console.log(data)
-		console.log(taskIndex)
-	};
+		taskClicked[data.title] = {[taskIndex]: false};
+		lineThroughStyle[data.title] = {[taskIndex]:''};
+		
+	};	
+	if(taskClicked[data.title[0]]==undefined){
+		taskClicked[data.title] = {[0]: false}
+	}
 	return (
 		<>
 			<div className='taskContent' data-testid='taskPageTest'>
@@ -56,12 +63,14 @@ const TaskPage = () => {
 					<span>tasks:</span>
 					{data.tasks?.map((task: string[], index: number) => (
 						<div
-							style={{ textDecoration: taskClicked[data.title[index]] }}
+							style={{ textDecoration: lineThroughStyle[data.title[index]] }}
 							onClick={
-								taskClicked[data.title[index]]
-									? (e) => handleTaskClickSecond(e, index)
-									: (e) => handleTaskClickFirst(e, index)
-							}
+								taskClicked[data.title[index]] == undefined
+								? ()=>{	taskClicked[data.title] = {[index]: false}}
+								: newTemp[index]!==false?(e:any) => handleTaskClickFirst(e, index) :(e) => handleTaskClickSecond(e, index)}
+								
+													
+							
 							className='task'
 							key={index}
 						>

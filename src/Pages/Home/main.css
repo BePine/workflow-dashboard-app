@@ -1,4 +1,5 @@
 /* --MAIN-- */
+
 h2{
     margin:auto;
     margin-top:10%;
@@ -17,19 +18,25 @@ h2{
     padding:3%;
     margin:auto;
     margin-top:5%;
-    margin-bottom:10%;
+    margin-bottom:5%;
   }
   @media (max-width:800px){
+    h2{
+    margin-top:15%;
+    }
     .content{
       width:80%;
   
     }
   }
   .mainImage{
-    width:60%;
+    width:30%;
     height:auto;
     margin:auto;
-    margin-top:10vh;
-    margin-bottom:10vh;
+    margin-bottom:5vh;
   }
-  
+  @media(max-width:799px){
+    .mainImage{
+      width:90%;
+    }
+  }
