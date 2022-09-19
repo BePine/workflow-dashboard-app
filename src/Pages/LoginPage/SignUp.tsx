@@ -1,13 +1,15 @@
 import { useContext, useState } from 'react';
 import React from 'react';
 import { auth } from '../../lib/Firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import PageContext from '../../Contexts/PageContext';
+import AuthContext from '../../Contexts/AuthContext';
 const SignUp = () => {
 	const [email, setEmail] = useState('');
-	const { setPage, setAllTasks, latestTask } = useContext(PageContext);
+	const { setLoading } = useContext(PageContext);
+	const { setLoggedIn } = useContext(AuthContext);
 	const [password, setPassword] = useState('');
 	const navigate = useNavigate();
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,7 +24,7 @@ const SignUp = () => {
 		createUserWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				const user = userCredential.user;
-				
+				// setLoggedIn(true)
 				
 				// ...
 			})
@@ -30,7 +32,7 @@ const SignUp = () => {
 		setPassword('');
 		setEmail('');
 	};
-
+	
 	return (
 		<>
 			<form role="form" onSubmit={handleSubmit}>

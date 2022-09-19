@@ -44,4 +44,15 @@
     color:White;
     cursor:pointer;
   }
-  
+  @media (max-width:1024px){
+    .loginContainer input{
+      width:70%;
+
+    }
+    .loginContainer button:nth-child(3){
+      width:70%;
+    }
+    .loginContainer button:nth-child(3):hover{
+      width:75%;
+    }
+  }

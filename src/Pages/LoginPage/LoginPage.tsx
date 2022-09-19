@@ -7,12 +7,22 @@ import './loginPage.css'
 import PageContext from '../../Contexts/PageContext';
 const LoginPage = () => {
 	const [choice, setChoice] = useState<number>(2);
-	const {loading} = useContext(PageContext)
+	const {loading, setLoading} = useContext(PageContext)
 	const handleClickLogin = () => {
+		// setLoading(true)
+		// setTimeout( () => {
+		// 	setLoading(false)
+			
+		// }, 800);								
 		setChoice(1);
+		
 	};
 	const handleClickRegister = () => {
-		setChoice(2);
+		// setLoading(true)
+		// setTimeout(() => {
+		// 	setLoading(false)
+		// }, 800);
+		setChoice(2);				
 	};
 	return (
 		<>	
